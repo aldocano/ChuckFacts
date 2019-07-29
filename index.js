@@ -1,5 +1,7 @@
 const { dialogflow, MediaObject, Image } = require('actions-on-google');
 const functions = require('firebase-functions');
+const i18n = require('i18n');
+
 
 // --- Quotes -----------------------------------------------------------------------------------------------------
 const quotes = {
@@ -371,22 +373,8 @@ app.intent('smalltalk.greetings.hello', (conv) => {
   conv.ask(ssml);
 });
 
-app.intent('smalltalk.greetings.whatsup', (conv) => {
-  const relevantQuotesKeys = ['1', '44', '50'];
-  const ssml = randomQuote(quotes, relevantQuotesKeys);
-  console.log(`SSML: ${ssml}`);
-  conv.ask(ssml);
-});
-
 app.intent('smalltalk.greetings.whatcanyoudo', (conv) => {
   const relevantQuotesKeys = ['2', '30'];
-  const ssml = randomQuote(quotes, relevantQuotesKeys);
-  console.log(`SSML: ${ssml}`);
-  conv.ask(ssml);
-});
-
-app.intent('smalltalk.greetings.whereareyou', (conv) => {
-  const relevantQuotesKeys = ['4', '41', '50'];
   const ssml = randomQuote(quotes, relevantQuotesKeys);
   console.log(`SSML: ${ssml}`);
   conv.ask(ssml);
@@ -401,20 +389,6 @@ app.intent('default.fallback', (conv) => {
 
 app.intent('smalltalk.greetings.goodmorning', (conv) => {
   const relevantQuotesKeys = ['12'];
-  const ssml = randomQuote(quotes, relevantQuotesKeys);
-  console.log(`SSML: ${ssml}`);
-  conv.ask(ssml);
-});
-
-app.intent('smalltalk.whatislove', (conv) => {
-  const relevantQuotesKeys = ['13'];
-  const ssml = randomQuote(quotes, relevantQuotesKeys);
-  console.log(`SSML: ${ssml}`);
-  conv.ask(ssml);
-});
-
-app.intent('smalltalk.whatisit', (conv) => {
-  const relevantQuotesKeys = ['14'];
   const ssml = randomQuote(quotes, relevantQuotesKeys);
   console.log(`SSML: ${ssml}`);
   conv.ask(ssml);
@@ -443,13 +417,6 @@ app.intent('smalltalk.greetings.bye', (conv) => {
 
 app.intent('smalltalk.agent.my_friend', (conv) => {
   const relevantQuotesKeys = ['56', '58', '63'];
-  const ssml = randomQuote(quotes, relevantQuotesKeys);
-  console.log(`SSML: ${ssml}`);
-  conv.ask(ssml);
-});
-
-app.intent('smalltalk.whatislife', (conv) => {
-  const relevantQuotesKeys = ['93'];
   const ssml = randomQuote(quotes, relevantQuotesKeys);
   console.log(`SSML: ${ssml}`);
   conv.ask(ssml);
